@@ -99,7 +99,7 @@ The router identifies intent from the user's question and passes to the correct 
 ## Handlers
 
 ### Built
-- [ ] `competitors.py` — competitive intelligence from calls
+- [x] `competitors.py` — competitive intelligence from calls
 - [ ] `deals_at_risk.py` — deals with low scores or stalled momentum
 - [ ] `close_probability.py` — forecast accuracy based on MEDDICC scores
 - [ ] `objections.py` — objection patterns across deals
@@ -161,19 +161,23 @@ async def handle(question: str, supabase, anthropic_key: str) -> str:
 ```
 
 ## Current status
-**Session:** Initial setup
-**Last updated:** 2026-08-03
+**Session:** Session 1 - Core infrastructure
+**Last updated:** 2026-08-04
 
 **Completed:**
 - Repository initialized
 - CLAUDE.md created
+- main.py with FastAPI, /query and /health endpoints
+- Async background processing pattern (avoids Zapier timeout)
+- handlers/competitors.py (first working handler)
+- requirements.txt, railway.toml, Procfile
+- Query routing based on keywords
 
 **Next steps:**
-1. Build main.py with FastAPI scaffold
-2. Implement /query endpoint with async background processing
-3. Create handlers/competitors.py as first handler
-4. Test locally with mock data
-5. Deploy to Railway
+1. Test locally with environment variables
+2. Deploy to Railway
+3. Set up Zapier integration (Zap 1 + Zap 2)
+4. Build additional handlers (deals_at_risk, close_probability, etc.)
 
 **Active issues:**
 None
@@ -181,4 +185,5 @@ None
 **Notes:**
 - Supabase tables already populated with 79 deals, 35 calls
 - MEDDICC analyses table empty (will populate on next nightly run)
-- Ready to build query handlers
+- Competitors handler ready to test with real data
+- Simple keyword-based routing (can upgrade to LLM routing later)

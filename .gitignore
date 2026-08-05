@@ -11,4 +11,6 @@ ENV/
 dist/
 build/
 .env
+.env.local
 .DS_Store
+*.log
